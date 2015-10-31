@@ -17,13 +17,14 @@ Pod::Spec.new do |s|
     :git => 'https://github.com/ReactiveCocoa/ReactiveCocoa.git',
     :tag => 'v4.0.0-alpha.3'
   }
-  s.dependency 'Result', '~> 0.6-beta.1'
+  s.dependency 'Result', '~> 0.6.0-beta.6'
+  s.framework = 'Foundation'
   s.default_subspec = 'UI'
+  s.prepare_command = "sed -i '' 's@<ReactiveCocoa/\\(.*\\)>@\"\\1\"@g' ReactiveCocoa/ReactiveCocoa.h"
 
   s.subspec 'no-arc' do |ss|
     ss.source_files = 'ReactiveCocoa/Objective-C/RACObjCRuntime.{h,m}'
     ss.requires_arc = false
-    ss.framework = 'Foundation'
   end
 
   s.subspec 'Core' do |ss|
@@ -38,7 +39,6 @@ Pod::Spec.new do |s|
       '**/*EXTRuntimeExtensions.h',
       '**/RACEmpty*.h'
     ]
-    ss.framework = 'Foundation'
     ss.dependency 'ReactiveCocoa/no-arc'
 
     ss.watchos.exclude_files = '**/NSURLConnection*'
