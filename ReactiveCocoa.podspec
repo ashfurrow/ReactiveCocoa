@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'ReactiveCocoa'
-  s.version = '4.0.1-alpha-3'
+  s.version = '4.0.2-alpha-3'
   s.summary = 'A framework for composing and transforming streams of values.'
   s.description = <<-EOS
     ReactiveCocoa (RAC) is an Objective-C framework for Functional Reactive Programming.
@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
     ss.ios.framework = 'UIKit'
 
     ss.osx.source_files = [
-      '"**/ReactiveCocoa.h',
+      '**/ReactiveCocoa.h',
       'ReactiveCocoa/**/*{AppKit,NSControl,NSText,NSTable}*'
     ]
     ss.osx.framework = 'AppKit'
